@@ -1,4 +1,4 @@
-// Type definitions for mui-datatables 2.1
+// Type definitions for mui-datatables 2.3
 // Project: https://github.com/gregnb/mui-datatables
 // Definitions by: Jeroen "Favna" Claassens <https://github.com/favna>
 //                 Ankith Konda <https://github.com/ankithkonda>
@@ -96,16 +96,22 @@ export interface MUIDataTableTextLabels {
     selectedRows: MUIDataTableTextLabelsSelectedRows;
 }
 
+export type Display = 'true' | 'false' | 'excluded';
+export type FilterType = 'dropdown' | 'checkbox' | 'multiselect' | 'textField';
+export type SortDirection = 'asc' | 'desc';
+export type Responsive = 'stacked' | 'scroll';
+export type SelectableRows = 'multiple' | 'single' | 'none';
+
 export interface MUIDataTableColumnOptions {
-    display?: 'true' | 'false' | 'excluded';
+    display?: Display;
     empty?: boolean;
     filter?: boolean;
     filterList?: string[];
     filterOptions?: string[];
-    filterType?: 'dropdown' | 'checkbox' | 'multiselect' | 'textField';
+    filterType?: FilterType;
     sort?: boolean;
     searchable?: boolean;
-    sortDirection?: 'asc' | 'desc';
+    sortDirection?: SortDirection;
     print?: boolean;
     download?: boolean;
     hint?: string;
@@ -134,7 +140,7 @@ export interface MUIDataTableOptions {
     elevation?: number;
     expandableRows?: boolean;
     filter?: boolean;
-    filterType?: 'dropdown' | 'checkbox' | 'multiselect' | 'textField';
+    filterType?: FilterType;
     fixedHeader?: boolean;
     isRowSelectable?: (dataIndex: number) => boolean;
     onCellClick?: (colData: any, cellMeta: { colIndex: number, rowIndex: number, dataIndex: number, event: React.MouseEvent }) => void;
@@ -154,13 +160,13 @@ export interface MUIDataTableOptions {
     print?: boolean;
     renderExpandableRow?: (rowData: string[], rowMeta: { dataIndex: number; rowIndex: number }) => React.ReactNode;
     resizableColumns?: boolean;
-    responsive?: 'stacked' | 'scroll';
+    responsive?: Responsive;
     rowHover?: boolean;
     rowsPerPage?: number;
     rowsPerPageOptions?: number[];
     rowsSelected?: any[];
     search?: boolean;
-    selectableRows?: boolean;
+    selectableRows?: SelectableRows;
     serverSide?: boolean;
     setRowProps?: (row: any[], rowIndex: number) => object;
     sort?: boolean;
